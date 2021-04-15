@@ -63,3 +63,5 @@ When you are done editing the prefs to your liking, save it and then run the sta
 If you would like a ducky script to run when the WDpi boots up then set $startupscript to 1. If you would like this feature turned off then set it to 0. The default is <code> export startupscript=1 </code>
 For whatever reason you could possibly have for wanting to do so... You can change the hostname of the WDpi by changing the value of $hostname to whatever you want. The default is <code> export hostname=WDpi </code>
 
+
+Thanks to @ossiozac for the [DuckBerry Pi](https://github.com/ossiozac/Raspberry-Pi-Zero-Rubber-Ducky-Duckberry-Pi) project. Without it, the WDpi would not have come out until about 2025.
