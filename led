@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [ $EUID -ne 0 ]; then
+	echo "Run as root"
+	exit
+fi
+
+
+if [ $1 = "blink" ]; then
+	sh -c "echo heartbeat > /sys/class/leds/led0/trigger"
+fi
+
+if [ $1 = "on" ]; then
+	sh -c "echo none > /sys/class/leds/led0/trigger"
+	sh -c "echo 1 > /sys/class/leds/led0/brightness"
+fi
+
+
+if [ $1 = "off" ]; then
+	sh -c "echo none > /sys/class/leds/led0/trigger"
+	sh -c "echo 0 > /sys/class/leds/led0/brightness"
+fi
+
+if [ $1 = "-h" ]; then
+	echo -e '\n LED control tool designed by GuyFawk3s. \n you can use 'sudo ./led on' or 'sudo ./led off'. \n'
+fi

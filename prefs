@@ -1,0 +1,8 @@
+#!/bin/bash
+
+  ########################################################################
+ # Please run the startprefs script when you are done editing this file #
+########################################################################
+
+export startupscript=1
+export hostname=WDpi

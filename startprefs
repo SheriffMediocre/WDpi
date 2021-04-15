@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# loads the prefs by executing this script
+. ./prefs
+
+
+# TURNS ON DUCKYSCRIPT AT STARTUP IF $startupscript IS SET TO 1 IN THE PREFS FILE
+
+if [ "$startupscript" = "1" ]; then
+
+sudo sed -i '/exit/d' /etc/rc.local
+sudo sed -i '\/home\/pi\/Desktop\/WDpi\/led blink/d' /etc/rc.local
+sudo sed -i '\/home\/pi\/Desktop\/WDpi\/led on/d' /etc/rc.local
+sudo sed -i '\/home\/pi\/Desktop\/WDpi\/run.sh \/home\/pi\/Desktop\/WDpi\/payload2.dd/d' /etc/rc.local
+cat <<END>>/etc/rc.local
+
+/home/pi/Desktop/WDpi/led blink
+/home/pi/Desktop/WDpi/run.sh /home/pi/Desktop/WDpi/payload2.dd
+/home/pi/Desktop/WDpi/led on
+
+END
+echo "exit 0" >> /etc/rc.local
+fi
+
+
+# TURNS OFF DUCKYSCRIPT AT STARTUP IF $startupscript IS SET TO 0 IN THE PREFS FILE
+
+if [ "$startupscript" = "0" ]; then
+sudo sed -i '/exit/d' /etc/rc.local
+sudo sed -i '\/home\/pi\/Desktop\/WDpi\/led blink/d' /etc/rc.local
+sudo sed -i '\/home\/pi\/Desktop\/WDpi\/led on/d' /etc/rc.local
+sudo sed -i '\/home\/pi\/Desktop\/WDpi\/run.sh \/home\/pi\/Desktop\/WDpi\/payload2.dd/d' /etc/rc.local
+echo "exit 0" >> /etc/rc.local
+fi
+
+
+# changes hostname to whatever $hostname is set to in the prefs file
+CURRENT_HOSTNAME=`cat /etc/hostname | tr -d " \t\n\r"`
+sudo sed -i "s/127.0.1.1.*$CURRENT_HOSTNAME/127.0.1.1\t$hostname/g" /etc/hosts
+echo $hostname > /etc/hostname
