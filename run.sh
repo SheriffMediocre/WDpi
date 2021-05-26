@@ -1,4 +1,4 @@
-#!/bin/bash
+~/#!/bin/bash
 
 if [ $EUID -ne 0 ]; then
 	echo "Run as root"
@@ -6,7 +6,7 @@ if [ $EUID -ne 0 ]; then
 fi
 
 # change this to wherever you installed to earlier
-installpath=/home/pi/Desktop/WDpi
+installpath=~/Desktop/WDpi
 
 defdelay=0
 kb="/dev/hidg0 keyboard"

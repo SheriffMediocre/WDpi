@@ -13,7 +13,7 @@ if [ $EUID -ne 0 ]; then
 fi
 
 # change this to where ever you are installing to
-installpath=/home/pi/Desktop/WDpi/
+installpath=~/Desktop/WDpi/
 
 # move to install directory
 cd $installpath
@@ -45,7 +45,7 @@ make usleep
 chmod 755 hid-gadget-test.c hid-gadget-test usleep.c usleep run.sh usbconfig led
 
 # makes a directory for the user to put payloads into for manual execution
-mkdir /home/pi/Desktop/payloads/
+mkdir ~/Desktop/payloads/
 
 
 
@@ -94,12 +94,12 @@ sed -i '/exit/d' /etc/rc.local
 cat <<END>>/etc/rc.local
 
 # enables usb gadget with specified config
-/home/pi/Desktop/WDpi/usbconfig
+~/Desktop/WDpi/usbconfig
 
 # WDpi stuff
-cat /boot/payload.dd > /home/pi/Desktop/WDpi/payload.dd
+cat /boot/payload.dd > ~/Desktop/WDpi/payload.dd
 sleep 1
-tr -d '\r' < /home/pi/Desktop/WDpi/payload.dd > /home/pi/Desktop/WDpi/payload2.dd
+tr -d '\r' < ~/Desktop/WDpi/payload.dd > ~/Desktop/WDpi/payload2.dd
 sleep 1
 
 exit 0

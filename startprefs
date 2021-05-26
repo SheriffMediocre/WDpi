@@ -1,4 +1,4 @@
-#!/bin/bash
+~/#!/bin/bash
 
 # loads the prefs by executing this script
 . ./prefs
@@ -14,9 +14,9 @@ sudo sed -i '\/home\/pi\/Desktop\/WDpi\/led on/d' /etc/rc.local
 sudo sed -i '\/home\/pi\/Desktop\/WDpi\/run.sh \/home\/pi\/Desktop\/WDpi\/payload2.dd/d' /etc/rc.local
 cat <<END>>/etc/rc.local
 
-/home/pi/Desktop/WDpi/led blink
-/home/pi/Desktop/WDpi/run.sh /home/pi/Desktop/WDpi/payload2.dd
-/home/pi/Desktop/WDpi/led on
+~/Desktop/WDpi/led blink
+~/Desktop/WDpi/run.sh ~/Desktop/WDpi/payload2.dd
+~/Desktop/WDpi/led on
 
 END
 echo "exit 0" >> /etc/rc.local
